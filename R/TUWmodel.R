@@ -33,7 +33,7 @@ TUWmodel <- function (prec, airt, ep, area=1, param=c(1.2,1.2,2,-2,0,0.9,100,3.3
  names(dummy$incon) <- c("SSM0","SWE0","SUZ0","SLZ0")
  dummy$qzones <- t(dummy$output[,1,])
  if (nzones > 1) {
-  dummy$q <- apply(dummy$qzones,1,weighted.mean,w=area)
+  dummy$q <- apply(dummy$qzones,1,sum)
  } else {
   dummy$q <- dummy$qzones
  }
